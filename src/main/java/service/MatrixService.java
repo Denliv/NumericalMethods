@@ -78,6 +78,15 @@ public class MatrixService {
         }
     }
 
+//    public static void getXjp1(double[][] Tj, double[] xj, double tau, double[] b, double[] result) {
+//        for (int i = 0; i < Tj.length; i++) {
+//            result[i] = tau * b[i];
+//            for (int j = 0; j < Tj.length; j++) {
+//                result[i] += Tj[i][j] * xj[j];
+//            }
+//        }
+//    }
+
     public static void multiplyMatrix(double[][] matrixA, double[][] matrixB, double[][] matrixResult) {
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
@@ -138,6 +147,14 @@ public class MatrixService {
         }
     }
 
+    public static void multiplyMatrixOnNumber(double[][] matrixA, double number) {
+        for (int i = 0; i < matrixA.length; i++) {
+            for (int j = 0; j < matrixA.length; j++) {
+                matrixA[i][j] *= number;
+            }
+        }
+    }
+
     public static void reverseUpperTriangular(double[][] matrix) {
         double[] copyElements = new double[matrix.length];
         for (int i = 0; i < matrix.length; i++) {
@@ -179,6 +196,24 @@ public class MatrixService {
         for (int i = 0; i < matrix.length; i++) {
             matrix[i][i] -= 1;
         }
+    }
+
+    public static void getEyeDifferenceWithMatrix(double[][] matrix, double[][] result, double koeff) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; ++j) {
+                result[i][j] = (i == j ? 1 : 0) - koeff * matrix[i][j];
+            }
+        }
+    }
+
+    public static double[][] getEyeDifferenceWithMatrix(double[][] matrix, double koeff) {
+        double[][] result = new double[matrix.length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; ++j) {
+                result[i][j] = (i == j ? 1 : 0) - koeff * matrix[i][j];
+            }
+        }
+        return result;
     }
 
     public static double getMatrixNorm(double[][] matrix) {
