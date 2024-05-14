@@ -50,7 +50,7 @@ public class PowerIterationMethod {
     }
 
     public static void main(String[] args) {
-        double[][] matrix = {{-4, 7, 7}, {7, 6, -9}, {7, -9, 6}};
+        double[][] matrix = {{2, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         double[] x0 = {1, 2, 3};
         System.out.print("x0 = ");
         printVector(x0);

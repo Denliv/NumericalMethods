@@ -217,6 +217,16 @@ public class MatrixService {
         }
     }
 
+    public static double[][] getEyeDifferenceWithMatrix(double[][] matrix, double koeff1, double koeff2) {
+        double[][] result = new double[matrix.length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; ++j) {
+                result[i][j] = Math.abs(koeff1) * (i == j ? 1 : 0) - koeff2 * matrix[i][j];
+            }
+        }
+        return result;
+    }
+
     public static double[][] getEyeDifferenceWithMatrix(double[][] matrix, double koeff) {
         double[][] result = new double[matrix.length][matrix.length];
         for (int i = 0; i < matrix.length; i++) {
