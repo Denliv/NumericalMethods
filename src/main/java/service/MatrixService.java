@@ -147,6 +147,17 @@ public class MatrixService {
         }
     }
 
+    public static double[] multiplyMatrixOnVector(double[][] matrix, double[] vector) {
+        double[] res = new double[matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            res[i] = 0.0;
+            for (int j = 0; j < matrix.length; j++) {
+                res[i] += matrix[i][j] * vector[j];
+            }
+        }
+        return res;
+    }
+
     public static void multiplyMatrixOnNumber(double[][] matrixA, double number) {
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA.length; j++) {
@@ -211,6 +222,16 @@ public class MatrixService {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; ++j) {
                 result[i][j] = (i == j ? 1 : 0) - koeff * matrix[i][j];
+            }
+        }
+        return result;
+    }
+
+    public static double[][] getMatrixDifferenceWithEye(double[][] matrix, double koeff) {
+        double[][] result = new double[matrix.length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; ++j) {
+                result[i][j] = matrix[i][j] - koeff * (i == j ? 1 : 0);
             }
         }
         return result;

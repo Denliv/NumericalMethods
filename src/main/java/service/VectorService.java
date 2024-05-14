@@ -49,4 +49,20 @@ public class VectorService {
         }
         return result;
     }
+
+    public static double[] multiplyVectorOnNumber(double[] vector, double number) {
+        double[] result = vector.clone();
+        for (int i = 0; i < vector.length; i++) {
+            result[i] *= number;
+        }
+        return result;
+    }
+
+    public static void printVector(double[] vector) {
+        System.out.print("(");
+        for (double v : vector) {
+            System.out.printf("%.2f ", v);
+        }
+        System.out.print(")" + System.lineSeparator());
+    }
 }
